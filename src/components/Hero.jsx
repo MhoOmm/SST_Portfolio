@@ -277,7 +277,7 @@ const Hero = () => {
                     fontSize: '0.95rem'
                   }}>
                     Seeking Summer 2026 internship opportunities in Data Science, ML Engineering, 
-                    AI Engineering, Data Engineering, and Data Analytics roles at FAANG and innovative startups.
+                    AI Engineering, Data Engineering, and Data Analytics roles.
                   </p>
                 </div>
               </div>

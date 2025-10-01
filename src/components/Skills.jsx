@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Code, Database, Brain } from 'lucide-react';
+import { Code, Database, Brain, ChartArea, ShieldCheck } from 'lucide-react';
 
 const Skills = () => {
   const sectionRef = React.useRef(null);
@@ -39,6 +39,33 @@ const Skills = () => {
         { name: "Transformers", level: 88 },
         { name: "GNNs", level: 70 }
       ]
+    },
+    {
+      title: "Experimentation & Methods",
+      icon: <ShieldCheck size={24} />,
+      color: "#3b82f6",
+      skills: [
+        { name: "A/B Testing", level: 85 },
+        { name: "Causal Inference", level: 75 },
+        { name: "Time-Series Forecasting", level: 88 },
+        { name: "Statistical Modeling", level: 90 }
+      ]
+    },
+    {
+      title: "Analytics & Visualization",
+      icon: <ChartArea size={24} />,
+      color: "#7c3aed",
+      skills: [
+        { name: "Computer Vision", level: 75 },
+        { name: "Power BI", level: 85 },
+        { name: "Tableau", level: 85 },
+        { name: "Pandas", level: 95 },
+        { name: "NumPy", level: 90 },
+        { name: "Matplotlib", level: 75},
+        { name: "Seaborn", level: 75 },
+        { name: "Plotly", level: 75 },
+        { name: "ETL", level: 88 }
+      ]
     }
   ];
 
@@ -76,6 +103,7 @@ const Skills = () => {
           data collection to model deployment and monitoring.
         </motion.p>
 
+        {/* Skills Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
@@ -208,6 +236,48 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Certifications Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          style={{
+            marginTop: "4rem",
+            padding: "2rem",
+            borderRadius: "1rem",
+            background: "#1e1e2e",
+            border: "1px solid #3b82f640",
+            textAlign: "center"
+          }}
+        >
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "#f1f5f9", marginBottom: "1rem" }}>
+            Continuous Learning & Certifications
+          </h3>
+          <p style={{ color: "#94a3b8", marginBottom: "1.5rem" }}>
+            Currently pursuing advanced certifications in cloud platforms and specialized ML frameworks to stay at the forefront of technology.
+          </p>
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <span style={{
+              padding: "0.5rem 1rem",
+              border: "1px solid #3b82f6",
+              borderRadius: "0.5rem",
+              color: "#3b82f6",
+              fontWeight: "500"
+            }}>
+              AWS Solutions Architect (In Progress)
+            </span>
+            <span style={{
+              padding: "0.5rem 1rem",
+              border: "1px solid #a855f7",
+              borderRadius: "0.5rem",
+              color: "#a855f7",
+              fontWeight: "500"
+            }}>
+              Google Cloud ML Engineer (Planned)
+            </span>
+          </div>
+        </motion.div>
       </div>
 
       <style jsx>{`
