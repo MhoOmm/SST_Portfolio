@@ -16,7 +16,7 @@ const Footer = () => {
     },
     {
       icon: <Mail size={20} />,
-      href:  "https://mail.google.com/mail/?view=cm&to=tripathishweta3001@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&to=tripathishweta3001@gmail.com",
       label: "Email"
     }
   ];
@@ -37,14 +37,14 @@ const Footer = () => {
       borderTop: '1px solid rgba(148, 163, 184, 0.2)'
     }}>
       <div className="container">
-        <div style={{
+        <div className="footer-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           gap: '2rem',
           marginBottom: '2rem'
         }}>
           {/* Brand Section */}
-          <div>
+          <div className="footer-section brand-section">
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,10 @@ const Footer = () => {
               in Data Science at Columbia University.
             </motion.p>
 
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <div className="social-links" style={{ 
+              display: 'flex', 
+              gap: '1rem'
+            }}>
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
@@ -112,7 +115,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="footer-section links-section">
             <motion.h4
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +130,11 @@ const Footer = () => {
               Quick Links
             </motion.h4>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div className="links-list" style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '0.75rem' 
+            }}>
               {quickLinks.map((link, index) => (
                 <motion.a
                   key={index}
@@ -152,7 +159,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="footer-section contact-section">
             <motion.h4
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +174,11 @@ const Footer = () => {
               Contact
             </motion.h4>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div className="contact-list" style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '0.75rem' 
+            }}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -249,9 +260,68 @@ const Footer = () => {
           padding: 0 1.5rem;
         }
         
+        .footer-section {
+          text-align: left;
+        }
+        
         @media (min-width: 768px) {
           .container {
             padding: 0 2rem;
+          }
+        }
+        
+        /* Mobile Center Alignment */
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center !important;
+            gap: 2.5rem !important;
+          }
+          
+          .footer-section {
+            text-align: center !important;
+          }
+          
+          .social-links {
+            justify-content: center !important;
+          }
+          
+          .links-list {
+            align-items: center !important;
+          }
+          
+          .contact-list {
+            align-items: center !important;
+          }
+          
+          .footer-section h3,
+          .footer-section h4 {
+            text-align: center !important;
+          }
+          
+          .footer-section p {
+            text-align: center !important;
+            max-width: none !important;
+          }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 1rem;
+          }
+          
+          .footer-grid {
+            gap: 2rem !important;
+          }
+          
+          .social-links {
+            gap: 0.75rem !important;
+          }
+          
+          .social-links a {
+            width: 2.25rem !important;
+            height: 2.25rem !important;
           }
         }
       `}</style>
