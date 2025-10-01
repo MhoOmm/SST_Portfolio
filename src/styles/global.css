@@ -1,0 +1,29 @@
+/* Global container styles for wider layout */
+.container {
+  max-width: 1400px !important; /* Much wider than current 1200px */
+  margin: 0 auto;
+  padding: 0 2rem !important; /* Reduced from 1.5rem */
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1600px !important; /* Even wider on large screens */
+    padding: 0 3rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem !important; /* Smaller padding on mobile */
+  }
+}
+
+/* Override any existing container styles */
+.section {
+  width: 100%;
+}
+
+/* Remove excessive padding from all sections */
+.section-content {
+  max-width: none !important;
+}
