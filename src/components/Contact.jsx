@@ -77,7 +77,6 @@ const handleSubmit = async (e) => {
   }
 };
 
-
   const contactInfo = [
     {
       icon: <Mail size={20} />,
@@ -120,7 +119,7 @@ const handleSubmit = async (e) => {
   ];
 
   return (
-    <section id="contact" className="section" ref={sectionRef} style={{ background: '#f8fafc' }}>
+    <section id="contact" className="section" ref={sectionRef} style={{ background: '#f8fafc', paddingTop: '2rem' }}>
       <div className="container">
         <motion.h2
           className="section-title"

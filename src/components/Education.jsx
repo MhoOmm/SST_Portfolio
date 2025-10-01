@@ -51,133 +51,8 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="section" ref={sectionRef} style={{ background: '#f8fafc' }}>
+    <section id="education" className="section" ref={sectionRef} style={{ background: '#f8fafc', paddingTop: '2rem' }}>
       <div className="container">
-        <motion.div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-            marginBottom: '4rem'
-          }}
-        >
-          {/* Achievements Stats */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '1rem'
-          }}>
-            <motion.div
-              className="card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              style={{
-                background: '#e0f2fe',
-                border: 'none',
-                padding: '1.5rem',
-                minWidth: '160px',
-                textAlign: 'center',
-                borderRadius: '1rem'
-              }}
-            >
-              <h3 style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#0369a1',
-                marginBottom: '0.5rem'
-              }}>
-                20+
-              </h3>
-              <p style={{
-                color: '#0369a1',
-                fontWeight: '600',
-                fontSize: '0.875rem'
-              }}>
-                Executive Dashboards
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              style={{
-                background: '#dcfce7',
-                border: 'none',
-                padding: '1.5rem',
-                minWidth: '160px',
-                textAlign: 'center',
-                borderRadius: '1rem'
-              }}
-            >
-              <h3 style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#10b981',
-                marginBottom: '0.5rem'
-              }}>
-                10M+
-              </h3>
-              <p style={{
-                color: '#059669',
-                fontWeight: '600',
-                fontSize: '0.875rem'
-              }}>
-                Records Processed
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Continuous Learning Card */}
-          <motion.div
-            className="card"
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            style={{
-              background: '#ffffff',
-              border: '1px solid #e2e8f0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-              borderRadius: '1rem',
-              padding: '2rem'
-            }}
-          >
-            <div style={{
-              width: '3rem',
-              height: '3rem',
-              background: 'rgba(59, 130, 246, 0.2)',
-              borderRadius: '0.75rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#3b82f6'
-            }}>
-              <GraduationCap size={20} />
-            </div>
-            
-            <div>
-              <h4 style={{
-                fontSize: '1rem',
-                fontWeight: '600',
-                color: '#3b82f6',
-                marginBottom: '0.25rem'
-              }}>
-                Continuous Learning
-              </h4>
-              <p style={{
-                color: '#64748b',
-                fontSize: '0.875rem'
-              }}>
-                Columbia MS Data Science, staying current with latest tech
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-
         <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 30 }}
@@ -419,6 +294,29 @@ const Education = () => {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+        
+        .section {
+          padding: 4rem 0;
+          position: relative;
+        }
+        
+        @media (min-width: 768px) {
+          .container {
+            padding: 0 2rem;
+          }
+          
+          .section {
+            padding: 6rem 0;
+          }
+        }
+      `}</style>
     </section>
   );
 };

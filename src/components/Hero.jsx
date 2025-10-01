@@ -529,30 +529,6 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            bottom: '3rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            textAlign: 'center',
-            color: 'rgba(255, 255, 255, 0.7)',
-            zIndex: 10
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-        >
-          <div style={{ marginBottom: '0.5rem', fontSize: '0.875rem' }}>Scroll to explore</div>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            ↓
-          </motion.div>
-        </motion.div>
       </div>
 
       <style jsx>{`

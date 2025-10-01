@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section" ref={sectionRef} style={{ background: '#f8fafc' }}>
+    <section id="about" className="section" ref={sectionRef} style={{ background: '#f8fafc', paddingBottom: '2rem' }}>
       <div className="container">
         {/* Getting to know me badge */}
         <motion.div
@@ -83,7 +83,7 @@ const About = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '3rem',
           alignItems: 'start',
-          marginBottom: '4rem'
+          marginBottom: '3rem' // Reduced from 4rem
         }}>
           {/* Journey Text */}
           <motion.div
@@ -266,6 +266,29 @@ const About = () => {
           </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+        
+        .section {
+          padding: 4rem 0;
+          position: relative;
+        }
+        
+        @media (min-width: 768px) {
+          .container {
+            padding: 0 2rem;
+          }
+          
+          .section {
+            padding: 6rem 0;
+          }
+        }
+      `}</style>
     </section>
   );
 };

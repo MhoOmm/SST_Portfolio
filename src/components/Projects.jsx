@@ -49,6 +49,7 @@ const Projects = () => {
       description: "Deployed an RL-driven IoT irrigation system, lowering water use by 30% and increasing yields by 20%",
       impact: "30% water reduction, 20% yield increase",
       tech: ["Azure", "Reinforcement Learning", "Python", "IoT Sensors", "Cloud Computing"],
+      github: null, // REMOVED GitHub link
       icon: <Zap size={20} />,
       color: "#f59e0b",
       gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
@@ -59,6 +60,7 @@ const Projects = () => {
       description: "Designed a real-time dashboard with ML models and LLMs to predict client payment dates, improving forecast accuracy by 35%",
       impact: "35% forecast improvement, 25% manual reduction",
       tech: ["ReactJS", "MySQL", "Java Servlets", "ML Models", "LLMs"],
+      github: null, // REMOVED GitHub link
       icon: <Brain size={20} />,
       color: "#ef4444",
       gradient: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
@@ -148,9 +150,10 @@ const Projects = () => {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '0.75rem',
+            gap: '0.5rem',
             marginBottom: '3rem',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            padding: '0 1rem'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -163,7 +166,7 @@ const Projects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: '0.75rem 1.25rem',
                 borderRadius: '2rem',
                 border: `1px solid ${activeFilter === filter ? '#22d3ee' : 'rgba(148, 163, 184, 0.3)'}`,
                 background: activeFilter === filter 
@@ -171,7 +174,7 @@ const Projects = () => {
                   : 'rgba(30, 41, 59, 0.5)',
                 color: activeFilter === filter ? '#ffffff' : '#94a3b8',
                 fontWeight: '600',
-                fontSize: '0.875rem',
+                fontSize: '0.8rem',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 backdropFilter: 'blur(10px)'
@@ -184,10 +187,12 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <motion.div
+          className="projects-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', // Reduced from 450px to 350px
+            gap: '2rem',
+            width: '100%'
           }}
           layout
         >
@@ -208,7 +213,9 @@ const Projects = () => {
                 borderRadius: '1.5rem',
                 padding: '2.5rem',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                width: '100%',
+                minWidth: 0 // Allow shrinking below content size
               }}
             >
               {/* Gradient overlay at top */}
@@ -243,21 +250,24 @@ const Projects = () => {
                   {project.icon}
                 </div>
                 
-                <motion.a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: 15 }}
-                  style={{
-                    color: '#94a3b8',
-                    transition: 'color 0.3s ease',
-                    padding: '0.5rem',
-                    borderRadius: '0.5rem',
-                    background: 'rgba(148, 163, 184, 0.1)'
-                  }}
-                >
-                  <Github size={20} />
-                </motion.a>
+                {/* Conditionally render GitHub icon */}
+                {project.github && (
+                  <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, rotate: 15 }}
+                    style={{
+                      color: '#94a3b8',
+                      transition: 'color 0.3s ease',
+                      padding: '0.5rem',
+                      borderRadius: '0.5rem',
+                      background: 'rgba(148, 163, 184, 0.1)'
+                    }}
+                  >
+                    <Github size={20} />
+                  </motion.a>
+                )}
               </div>
 
               {/* Category Badge */}
@@ -295,7 +305,7 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Impact Section - Styled like reference */}
+              {/* Impact Section */}
               <div style={{
                 background: 'linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(168, 85, 247, 0.1))',
                 border: '1px solid rgba(34, 211, 238, 0.3)',
@@ -410,6 +420,8 @@ const Projects = () => {
           max-width: 1400px !important;
           margin: 0 auto;
           padding: 0 2rem !important;
+          width: 100%;
+          box-sizing: border-box;
         }
         
         @media (min-width: 1600px) {
@@ -422,6 +434,8 @@ const Projects = () => {
         .section {
           padding: 6rem 0;
           position: relative;
+          width: 100%;
+          overflow-x: hidden;
         }
         
         .project-card {
@@ -433,6 +447,11 @@ const Projects = () => {
           box-shadow: 0 20px 40px -10px rgba(34, 211, 238, 0.2);
         }
         
+        .projects-grid {
+          width: 100%;
+        }
+        
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
           .container {
             padding: 0 1rem !important;
@@ -442,12 +461,53 @@ const Projects = () => {
             padding: 4rem 0;
           }
           
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          
           .project-card {
             padding: 1.5rem !important;
+            margin: 0 !important;
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+          
+          .project-card h3 {
+            font-size: 1.25rem !important;
+          }
+          
+          .project-card p {
+            font-size: 0.9rem !important;
           }
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 0.5rem !important;
+          }
+          
+          .projects-grid {
+            gap: 1rem !important;
+          }
+          
+          .project-card {
+            padding: 1rem !important;
+          }
+          
+          .project-card h3 {
+            font-size: 1.1rem !important;
+          }
+          
+          /* Make filter buttons smaller on very small screens */
+          button {
+            padding: 0.5rem 1rem !important;
+            font-size: 0.75rem !important;
+          }
+        }
+        
+        /* Ensure proper grid behavior on all screen sizes */
+        @media (max-width: 400px) {
           .projects-grid {
             grid-template-columns: 1fr !important;
           }

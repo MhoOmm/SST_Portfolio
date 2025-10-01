@@ -31,15 +31,15 @@ const Stats = () => {
   ];
 
   return (
-    <section id="stats" className="section" ref={sectionRef} style={{ background: '#f8fafc' }}>
+    <section id="stats" className="section" ref={sectionRef} style={{ background: '#f8fafc', paddingBottom: '2rem' }}>
       <div className="container">
         {/* Stats Grid */}
         <motion.div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-            marginBottom: '4rem'
+            gap: '2rem'
+            // REMOVED: marginBottom: '4rem'
           }}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -123,6 +123,27 @@ const Stats = () => {
       <style jsx>{`
         .card:hover .card-overlay {
           opacity: 1;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+        
+        .section {
+          padding: 4rem 0;
+          position: relative;
+        }
+        
+        @media (min-width: 768px) {
+          .container {
+            padding: 0 2rem;
+          }
+          
+          .section {
+            padding: 6rem 0;
+          }
         }
       `}</style>
     </section>
