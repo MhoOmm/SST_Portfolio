@@ -5,37 +5,50 @@ import { Building2, Calendar, MapPin, ChevronRight, Trophy } from 'lucide-react'
 const Experience = () => {
   const sectionRef = React.useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [selectedRole, setSelectedRole] = useState(1); // Start with Business Intelligence Analyst selected
+  const [selectedRole, setSelectedRole] = useState(0); // Start with Amazon selected
 
   const experiences = [
     {
-      title: "Sr. Business Intelligence Data Engineer",
+      title: "Data Engineer Intern",
+      company: "Amazon",
+      location: "Seattle, WA",
+      duration: "May 2026 – Aug 2026",
+      color: "#22d3ee",
+      achievements: [
+        "Automated 10+ recurring data engineering tasks by developing an MCP server from daily workflow analysis, reducing manual engineering effort by 40%.",
+        "Expanded the MCP server into a reusable framework within the internal AI platform, enabling 3+ teams to automate data requests and reducing turnaround time by 30%.",
+        "Established a production metrics pipeline for Weekly Business Reviews by processing 50K+ seller interactions, powering leadership dashboards for response and engagement analysis."
+      ],
+      technologies: ["MCP Server", "Python", "AI Platform", "Data Pipelines", "SQL", "Dashboards"]
+    },
+    {
+      title: "Senior Data Engineer",
       company: "Providence Global Center",
-      client: "Advent Health",
+      client: "AdventHealth",
       location: "Hyderabad, India",
       duration: "Jul 2024 – Jul 2025",
       color: "#22d3ee",
       achievements: [
-        "Spearheaded an 8-member analytics team to deliver 20+ executive dashboards across 19 HITRUST domains",
-        "Developed ML pipelines improving anomaly-detection accuracy to 87% and reducing incident exposure by 75%",
-        "Optimized 50+ SQL/Snowflake pipelines, cutting runtime by 65% and raising reporting efficiency by 40%",
-        "Integrated PySpark + MLflow into ETL, decreasing deployment errors by 40%"
+        "Accelerated TB-scale data refreshes from 8 hours to 30 minutes with Airflow and Databricks by optimizing partitioned loads and Snowflake clustering, supporting 70+ users across 6 teams.",
+        "Modeled 10M+ daily security events from Kafka and S3 in Snowflake using dimensional schemas, supporting 45+ KPIs and reducing compute spend by 35% for CISO reporting.",
+        "Strengthened data quality with dbt contracts, snapshots, CI/CD checks, schema-drift alerts, and freshness SLOs, raising on-time pipeline SLA from 91% to 99%.",
+        "Coordinated requirements with security and business stakeholders, translating reporting needs into production datasets while supporting incident runbooks and postmortems across 19 HITRUST domains."
       ],
-      technologies: ["Python", "Snowflake", "ML Pipelines", "SQL", "Dashboards"]
+      technologies: ["Python", "Snowflake", "Airflow", "Databricks", "dbt", "Kafka", "S3", "SQL"]
     },
     {
-      title: "Business Intelligence Analyst", 
-      company: "DELL Technologies",
+      title: "Business Intelligence and Data Engineer",
+      company: "Dell Technologies",
       location: "Bangalore, India",
       duration: "Jun 2022 – Jul 2024",
       color: "#22d3ee",
       achievements: [
-        "Produced 30+ interactive dashboards across 4M+ Salesforce/Teradata/D&B records",
-        "Conducted EDA raising data quality by 60% and eliminating recurring errors",
-        "Automated preprocessing reducing prep time by 75% and supporting real-time forecasting",
-        "Earned Dell's Inspire Award for streamlining reporting (+50% efficiency)"
+        "Orchestrated 80+ daily Airflow jobs with incremental loads and automated data checks, reducing manual runbook effort by 75% and improving reporting availability for Sales and Operations.",
+        "Integrated Salesforce API data with 4M+ Teradata records using PySpark and SQL ETL, shortening processing windows by 60% and stabilizing daily GTM reporting.",
+        "Standardized KPIs across 30+ Power BI dashboards by enforcing shared semantic models and DAX conventions, eliminating metric discrepancies across business units.",
+        "Earned Dell's Inspire Award for streamlining reporting workflows, improving overall reporting efficiency by 50%."
       ],
-      technologies: ["Power BI", "Tableau", "Python", "PySpark", "SQL", "Teradata", "RPA"]
+      technologies: ["Power BI", "Tableau", "Python", "PySpark", "SQL", "Teradata", "Airflow", "Salesforce"]
     },
     {
       title: "Data Analyst Intern",
@@ -100,8 +113,8 @@ const Experience = () => {
             margin: '0 auto 4rem'
           }}
         >
-          3+ years of experience in data science, ML engineering, and business intelligence 
-          across leading technology companies.
+          5+ years of experience in data engineering, ML engineering, and business intelligence
+          across leading technology companies including Amazon, Dell, and Providence.
         </motion.p>
 
         {/* Main Layout */}

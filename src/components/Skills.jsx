@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Code, Database, Brain, BarChart3, Zap } from 'lucide-react';
+import { Code, Database, ShieldCheck, Cloud, BarChart3, GitMerge } from 'lucide-react';
 
 const Skills = () => {
   const sectionRef = React.useRef(null);
@@ -8,84 +8,94 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Programming & Frameworks",
+      title: "Languages",
       icon: <Code size={24} />,
       color: "#22d3ee",
       gradient: "linear-gradient(90deg, #22d3ee 0%, #0891b2 100%)",
-      skills: [
+      bars: [
         { name: "Python", level: 95 },
-        { name: "Java", level: 85 },
-        { name: "SQL", level: 90 },
-        { name: "React", level: 80 },
-        { name: "REST APIs", level: 75 },
-        { name: "PyTorch", level: 88 },
-        { name: "TensorFlow", level: 85 }
-      ]
+        { name: "SQL",    level: 92 },
+        { name: "Bash",   level: 78 },
+        { name: "Java",   level: 80 },
+        { name: "R",      level: 72 }
+      ],
+      tags: []
     },
     {
-      title: "Data Platforms & MLOps",
+      title: "Data Engineering",
+      icon: <GitMerge size={24} />,
+      color: "#a855f7",
+      gradient: "linear-gradient(90deg, #a855f7 0%, #7c3aed 100%)",
+      bars: [
+        { name: "PySpark / Spark",            level: 90 },
+        { name: "Airflow",                    level: 88 },
+        { name: "dbt",                        level: 85 },
+        { name: "Kafka",                      level: 80 },
+        { name: "Batch & Streaming Pipelines",level: 87 },
+        { name: "A/B Testing",                level: 84 }
+      ],
+      tags: ["ETL/ELT", "Databricks", "Incremental Loads", "Data Contracts"]
+    },
+    {
+      title: "Data Modeling & Warehousing",
       icon: <Database size={24} />,
       color: "#22d3ee",
       gradient: "linear-gradient(90deg, #22d3ee 0%, #0891b2 100%)",
-      skills: [
-        { name: "Snowflake", level: 90 },
-        { name: "Azure Data Factory", level: 75 },
-        { name: "AWS", level: 85 },
-        { name: "PySpark", level: 88 },
-        { name: "MLflow", level: 82 },
-        { name: "Kubernetes", level: 75 }
-      ]
+      bars: [
+        { name: "Snowflake",           level: 92 },
+        { name: "Teradata",            level: 85 },
+        { name: "BigQuery",            level: 80 },
+        { name: "Azure SQL",           level: 78 },
+        { name: "Dimensional Modeling",level: 90 }
+      ],
+      tags: ["Schema Design", "S3", "Star / Snowflake Schema", "SCD"]
     },
     {
-      title: "Machine Learning",
-      icon: <Brain size={24} />,
-      color: "#a855f7",
-      gradient: "linear-gradient(90deg, #a855f7 0%, #7c3aed 100%)",
-      skills: [
-        { name: "LLMs", level: 90 },
-        { name: "LSTMs", level: 75 },
-        { name: "Transformers", level: 88 },
-        { name: "GNNs", level: 75 },
-        { name: "Reinforcement Learning", level: 80 },
-        { name: "CNNs", level: 90 },
-        { name: "Hugging Face", level: 75 }
-      ]
+      title: "Data Quality & Governance",
+      icon: <ShieldCheck size={24} />,
+      color: "#10b981",
+      gradient: "linear-gradient(90deg, #10b981 0%, #059669 100%)",
+      bars: [
+        { name: "Schema Validation",   level: 90 },
+        { name: "Data Quality",        level: 88 },
+        { name: "Pipeline Monitoring", level: 85 },
+        { name: "CI/CD",              level: 82 }
+      ],
+      tags: ["Data Contracts", "Data Validation", "Freshness SLOs", "Schema-Drift Alerts", "dbt Tests"]
     },
     {
-      title: "Experimentation & Methods",
-      icon: <Zap size={24} />,
+      title: "Cloud & APIs",
+      icon: <Cloud size={24} />,
       color: "#f59e0b",
       gradient: "linear-gradient(90deg, #f59e0b 0%, #d97706 100%)",
-      skills: [
-        { name: "A/B Testing", level: 85 },
-        { name: "Causal Inference", level: 75 },
-        { name: "Time-Series Forecasting", level: 88 },
-        { name: "Statistical Modeling", level: 90 }
-      ]
+      bars: [
+        { name: "AWS",     level: 85 },
+        { name: "Azure",   level: 80 },
+        { name: "Docker",  level: 82 },
+        { name: "FastAPI", level: 88 }
+      ],
+      tags: ["Kubernetes", "Git", "REST APIs", "MCP (Model Context Protocol)"]
     },
     {
-      title: "Analytics & Visualization",
+      title: "Analytics & ML",
       icon: <BarChart3 size={24} />,
       color: "#8b5cf6",
       gradient: "linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%)",
-      skills: [
-        { name: "Computer Vision", level: 75 },
-        { name: "Power BI", level: 85 },
-        { name: "Tableau", level: 85 },
-        { name: "Pandas", level: 95 },
-        { name: "NumPy", level: 90 },
-        { name: "Matplotlib", level: 75 },
-        { name: "Seaborn", level: 75 },
-        { name: "Plotly", level: 75 },
-        { name: "ETL", level: 88 }
-      ]
+      bars: [
+        { name: "Power BI",    level: 88 },
+        { name: "Tableau",     level: 85 },
+        { name: "Pandas",      level: 95 },
+        { name: "NumPy",       level: 92 },
+        { name: "scikit-learn",level: 88 },
+        { name: "PyTorch",     level: 85 },
+        { name: "TensorFlow",  level: 82 }
+      ],
+      tags: ["XGBoost", "LightGBM"]
     }
   ];
 
   return (
-    <section id="skills" className="section" ref={sectionRef} style={{ 
-      background: '#0f172a'
-    }}>
+    <section id="skills" className="section" ref={sectionRef} style={{ background: '#0f172a' }}>
       <div className="container">
         <motion.h2
           className="section-title"
@@ -116,8 +126,8 @@ const Skills = () => {
             margin: '0 auto 4rem'
           }}
         >
-          Comprehensive expertise across the full data science and ML engineering stack, from 
-          data collection to model deployment and monitoring.
+          Full-stack data engineering expertise — from raw ingestion and warehouse modeling
+          to quality governance, cloud deployment, and ML-powered analytics.
         </motion.p>
 
         {/* Skills Grid */}
@@ -133,7 +143,7 @@ const Skills = () => {
               className="skill-card"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
+              transition={{ delay: categoryIndex * 0.08, duration: 0.6 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               style={{
                 background: 'rgba(30, 41, 59, 0.8)',
@@ -145,11 +155,20 @@ const Skills = () => {
                 overflow: 'hidden'
               }}
             >
+              {/* Top accent bar */}
+              <div style={{
+                position: 'absolute',
+                top: 0, left: 0, right: 0,
+                height: '3px',
+                background: category.gradient,
+                borderRadius: '1.5rem 1.5rem 0 0'
+              }} />
+
               {/* Header */}
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '1rem', 
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
                 marginBottom: '2rem'
               }}>
                 <div style={{
@@ -160,13 +179,14 @@ const Skills = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: category.color
+                  color: category.color,
+                  boxShadow: `0 0 12px ${category.color}30`
                 }}>
                   {category.icon}
                 </div>
-                
+
                 <h3 style={{
-                  fontSize: '1.25rem',
+                  fontSize: '1.2rem',
                   fontWeight: '600',
                   color: '#f1f5f9'
                 }}>
@@ -174,60 +194,32 @@ const Skills = () => {
                 </h3>
               </div>
 
-              {/* Skills List */}
-              <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                gap: '1.5rem'
-              }}>
-                {category.skills.map((skill, skillIndex) => (
+              {/* Proficiency bars */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                {category.bars.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ 
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                      duration: 0.5 
+                    transition={{
+                      delay: categoryIndex * 0.08 + skillIndex * 0.05,
+                      duration: 0.5
                     }}
                   >
-                    {/* Skill Name and Percentage */}
                     <div style={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      marginBottom: '0.5rem'
+                      marginBottom: '0.4rem'
                     }}>
-                      <span style={{
-                        fontSize: '1rem',
-                        fontWeight: '500',
-                        color: '#f1f5f9'
-                      }}>
+                      <span style={{ fontSize: '0.95rem', fontWeight: '500', color: '#f1f5f9' }}>
                         {skill.name}
                       </span>
-                      
-                      <span style={{
-                        fontSize: '0.875rem',
-                        fontWeight: '600',
-                        color: category.color
-                      }}>
+                      <span style={{ fontSize: '0.8rem', fontWeight: '600', color: category.color }}>
                         {skill.level}%
                       </span>
                     </div>
-                    
-                    {/* Skill Level Labels */}
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      fontSize: '0.75rem',
-                      color: '#64748b',
-                      marginBottom: '0.5rem'
-                    }}>
-                      <span>Beginner</span>
-                      <span>Intermediate</span>
-                      <span>Expert</span>
-                    </div>
-                    
-                    {/* Progress Bar with Gradient */}
+
                     <div style={{
                       width: '100%',
                       height: '6px',
@@ -238,14 +230,14 @@ const Skills = () => {
                       <motion.div
                         style={{
                           height: '100%',
-                          background: category.gradient, // This is the gradient part!
+                          background: category.gradient,
                           borderRadius: '3px',
-                          boxShadow: `0 0 10px ${category.color}40`
+                          boxShadow: `0 0 8px ${category.color}50`
                         }}
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                        transition={{ 
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3,
+                        transition={{
+                          delay: categoryIndex * 0.08 + skillIndex * 0.05 + 0.3,
                           duration: 1,
                           ease: "easeOut"
                         }}
@@ -254,6 +246,48 @@ const Skills = () => {
                   </motion.div>
                 ))}
               </div>
+
+              {/* Tag pills for additional tools */}
+              {category.tags.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: categoryIndex * 0.08 + 0.6, duration: 0.5 }}
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '0.5rem',
+                    marginTop: '1.5rem',
+                    paddingTop: '1.25rem',
+                    borderTop: `1px solid ${category.color}20`
+                  }}
+                >
+                  {category.tags.map((tag, ti) => (
+                    <span key={ti} style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      background: `${category.color}12`,
+                      color: category.color,
+                      border: `1px solid ${category.color}30`,
+                      padding: '0.3rem 0.75rem',
+                      borderRadius: '2rem',
+                      fontSize: '0.78rem',
+                      fontWeight: '500'
+                    }}>
+                      <span style={{
+                        width: '5px', height: '5px',
+                        borderRadius: '50%',
+                        background: category.color,
+                        boxShadow: `0 0 5px ${category.color}`,
+                        flexShrink: 0,
+                        display: 'inline-block'
+                      }} />
+                      {tag}
+                    </span>
+                  ))}
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -267,62 +301,39 @@ const Skills = () => {
           width: 100%;
           box-sizing: border-box;
         }
-        
+
         .section {
           padding: 6rem 0;
           position: relative;
           width: 100%;
           overflow-x: hidden;
         }
-        
+
         .skill-card {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .skill-card:hover {
           border-color: rgba(34, 211, 238, 0.4);
           box-shadow: 0 20px 40px -10px rgba(34, 211, 238, 0.2);
         }
-        
-        /* Mobile Responsive Styles */
+
         @media (max-width: 768px) {
-          .container {
-            padding: 0 1rem !important;
-          }
-          
-          .section {
-            padding: 4rem 0;
-          }
-          
+          .container { padding: 0 1rem !important; }
+          .section { padding: 4rem 0; }
           div[style*="grid-template-columns"] {
             grid-template-columns: 1fr !important;
             gap: 1.5rem !important;
           }
-          
-          .skill-card {
-            padding: 1.5rem !important;
-          }
-          
-          .skill-card h3 {
-            font-size: 1.1rem !important;
-          }
+          .skill-card { padding: 1.5rem !important; }
+          .skill-card h3 { font-size: 1.1rem !important; }
         }
-        
+
         @media (max-width: 480px) {
-          .container {
-            padding: 0 0.75rem !important;
-          }
-          
-          .skill-card {
-            padding: 1.25rem !important;
-          }
-          
-          div[style*="gap: 1.5rem"] {
-            gap: 1rem !important;
-          }
+          .container { padding: 0 0.75rem !important; }
+          .skill-card { padding: 1.25rem !important; }
         }
-        
-        /* Ensure proper grid behavior on all screen sizes */
+
         @media (max-width: 450px) {
           div[style*="minmax(400px, 1fr)"] {
             grid-template-columns: 1fr !important;

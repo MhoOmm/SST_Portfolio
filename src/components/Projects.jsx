@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Github, ExternalLink, Brain, Eye, Bot, Zap, Clock, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, Brain, Eye, Bot, Zap, Clock, Sparkles, Database, ShoppingCart, BarChart2 } from 'lucide-react';
 
 const Projects = () => {
   const sectionRef = React.useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('Data Engineering');
 
-  const filters = ['All', 'Computer Vision', 'Machine Learning', 'NLP', 'IoT & Analytics'];
+  const filters = ['All', 'Data Engineering', 'Computer Vision', 'Machine Learning', 'NLP', 'IoT & Analytics'];
 
   const projects = [
     {
@@ -60,10 +60,51 @@ const Projects = () => {
       description: "Designed a real-time dashboard with ML models and LLMs to predict client payment dates, improving forecast accuracy by 35%",
       impact: "35% forecast improvement, 25% manual reduction",
       tech: ["ReactJS", "MySQL", "Java Servlets", "ML Models", "LLMs"],
-      github: null, // REMOVED GitHub link
+      github: null,
       icon: <Brain size={20} />,
       color: "#ef4444",
       gradient: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
+    },
+    {
+      title: "SQL Copilot Agent: Text to SQL with Guardrails",
+      category: "Data Engineering",
+      bullets: [
+        "Created a Snowflake text-to-SQL system that maps business questions to schema-grounded queries, achieving 93% execution success across 120+ prompts with 3.9s median latency.",
+        "Controlled query execution with read-only access, schema and join validation, and structured outputs, reducing invalid SQL from 28% to 6%."
+      ],
+      impact: "93% execution success · Invalid SQL cut from 28% → 6%",
+      tech: ["FastAPI", "LangGraph", "GPT-4", "Claude", "SQL", "Snowflake"],
+      github: null,
+      icon: <Database size={20} />,
+      color: "#22d3ee",
+      gradient: "linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)"
+    },
+    {
+      title: "MacroCart: Data and Inference Pipeline",
+      category: "Data Engineering",
+      bullets: [
+        "Delivered a structured nutrition planning platform that generated multi-meal plans under daily macro constraints across 120+ test scenarios.",
+        "Validated serving data through typed FastAPI models and Chroma retrieval, reducing missing and inconsistent records by 45% and raising validation pass rates from 82% to 96%."
+      ],
+      impact: "45% fewer data issues · Validation pass rate 82% → 96%",
+      tech: ["Python", "SQL", "FastAPI", "Chroma", "OpenAI", "Ollama"],
+      github: null,
+      icon: <ShoppingCart size={20} />,
+      color: "#a855f7",
+      gradient: "linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)"
+    },
+    {
+      title: "Home Credit Default Pipeline",
+      category: "Data Engineering",
+      bullets: [
+        "Designed leakage-safe transformations and automated feature engineering for 300K+ applications, improving PR-AUC from 0.46 to 0.53 and AUC from 0.76 to 0.79."
+      ],
+      impact: "PR-AUC 0.46 → 0.53 · AUC 0.76 → 0.79 on 300K+ records",
+      tech: ["SQL", "Feature Engineering", "Python", "Scikit-learn", "Reproducible Transforms"],
+      github: null,
+      icon: <BarChart2 size={20} />,
+      color: "#f59e0b",
+      gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
     }
   ];
 
@@ -296,14 +337,48 @@ const Projects = () => {
                 {project.title}
               </h3>
 
-              <p style={{
-                color: '#94a3b8',
-                lineHeight: '1.6',
-                marginBottom: '2rem',
-                fontSize: '1rem'
-              }}>
-                {project.description}
-              </p>
+              {project.bullets ? (
+                <ul style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: '0 0 2rem 0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem'
+                }}>
+                  {project.bullets.map((bullet, bi) => (
+                    <li key={bi} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.75rem',
+                      color: '#94a3b8',
+                      lineHeight: '1.6',
+                      fontSize: '0.95rem'
+                    }}>
+                      <span style={{
+                        flexShrink: 0,
+                        marginTop: '0.35rem',
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: project.color,
+                        boxShadow: `0 0 6px ${project.color}80`,
+                        display: 'inline-block'
+                      }} />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p style={{
+                  color: '#94a3b8',
+                  lineHeight: '1.6',
+                  marginBottom: '2rem',
+                  fontSize: '1rem'
+                }}>
+                  {project.description}
+                </p>
+              )}
 
               {/* Impact Section */}
               <div style={{

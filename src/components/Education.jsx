@@ -12,11 +12,14 @@ const Education = () => {
       school: "Columbia University in the city of New York",
       location: "New York, NY",
       duration: "Aug 2025 – Dec 2026",
+      gpa: "3.6/4.0",
       coursework: [
-        "Applied Machine Learning",
-        "Applied Deep Learning", 
-        "Exploratory Data Analytics",
-        "Probability & Statistics"
+        "Agentic AI",
+        "GenAI with LLMs",
+        "Applied Deep Learning",
+        "Statistical Inference",
+        "HPML",
+        "EDAV"
       ],
       color: "#a855f7"
     },
@@ -25,13 +28,13 @@ const Education = () => {
       school: "Kalinga Institute of Industrial Technology",
       location: "Odisha, India", 
       duration: "Jun 2018 – Jul 2022",
-      gpa: "3.8/4.0",
+      gpa: "3.99/4.0",
       coursework: [
-        "Artificial Intelligence",
-        "Machine Learning",
+        "Data Structures",
         "DBMS",
         "Software Engineering",
-        "Data Structures & Algorithms"
+        "Machine Learning",
+        "Artificial Intelligence"
       ],
       color: "#3b82f6"
     }
