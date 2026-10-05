@@ -276,7 +276,7 @@ const Hero = () => {
                     lineHeight: '1.6',
                     fontSize: '0.95rem'
                   }}>
-                    Seeking Summer 2026 internship opportunities in Data Science, ML Engineering, 
+                    Seeking Full time opportunities in Data Science, ML Engineering, 
                     AI Engineering, Data Engineering, and Data Analytics roles.
                   </p>
                 </div>
